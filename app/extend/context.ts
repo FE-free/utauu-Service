@@ -14,5 +14,9 @@ export default {
       timestamp: Date.now()
     };
     return JSON.stringify(result);
+  },
+
+  validataArticle(this: Context, rules: any, params: any) {
+    return this.app.validator.validate(rules, params);
   }
 };

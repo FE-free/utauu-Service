@@ -26,12 +26,19 @@ export default (appInfo: EggAppInfo) => {
       // ignoreJSON: true
       enable: false
     },
+    domainWhiteList: ["*"],
     xframe: {
       enable: false
     }
   };
 
-  //  配置 校验
+  // 跨域
+  config.cors = {
+    origin: "*",
+    allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH,OPTION"
+  };
+
+  // 校验
   config.validate = {
     // convert 类型转换
     convert: true,

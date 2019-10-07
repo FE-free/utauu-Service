@@ -1,15 +1,53 @@
 import BaseController from "../core/base_controller";
-
+import { validataArticle } from "../config/validataRules";
 // 文章 模块
 export default class ArticleController extends BaseController {
+  // 获取文章
+  public async getArticle() {
+    this.success(await this.service.article.getArticle());
+  }
+
+  // 获取单篇文章详情
+  public async getArticleDetail() {
+    this.success(
+      await this.service.article.getArticleDetail(this.ctx.params.id)
+    );
+  }
+
+  // 获取公布状态文章
+  public async getPublishArticle() {
+    this.success(await this.service.article.getPublishArticle());
+  }
+
+  // 获取公布状态文章
+  public async getTagClassArticle() {
+    this.success(
+      await this.service.article.getTagClassArticle(this.ctx.params)
+    );
+  }
+
+  // 更新单篇文章详情
+  public async updateArticle() {
+    const { ctx } = this;
+    const errors = ctx.validataArticle(validataArticle, ctx.request.body);
+
+    if (errors) {
+      this.validateError(errors);
+      return;
+    }
+
+    this.success(
+      await this.service.article.updateArticle(
+        ctx.query.articleID,
+        ctx.request.body
+      )
+    );
+  }
+
   // 新建文章
   public async createArticle() {
     const { ctx } = this;
-
-    const errors = this.app.validator.validate(
-      { title: "string", content: "int" },
-      ctx.request.body
-    );
+    const errors = ctx.validataArticle(validataArticle, ctx.request.body);
 
     if (errors) {
       this.validateError(errors);
