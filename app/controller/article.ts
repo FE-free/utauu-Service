@@ -22,7 +22,7 @@ export default class ArticleController extends BaseController {
   // 获取公布状态文章
   public async getTagClassArticle() {
     this.success(
-      await this.service.article.getTagClassArticle(this.ctx.params)
+      await this.service.article.getTagClassArticle(this.ctx.query)
     );
   }
 
