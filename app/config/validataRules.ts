@@ -10,3 +10,9 @@ export const validataArticle = {
 export const tags = {
   msg: "string"
 };
+
+export const createUser = {
+  name: "string?",
+  username: "string",
+  password: "password"
+};

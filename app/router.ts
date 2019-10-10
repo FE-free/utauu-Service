@@ -26,4 +26,10 @@ export default (app: Application) => {
   router.get("/getTagAll", controller.tags.getTagAll);
   //  删除标签
   router.delete("/deleteTag", controller.tags.deleteTag);
+
+  /*** 登录模块 */
+  router.post('/login', controller.user.login);
+
+  router.post('/register', controller.user.register);
+
 };
