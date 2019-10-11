@@ -1,8 +1,9 @@
-import { Application } from "egg";
+import { Application, EggAppConfig } from "egg";
 
-export default (app: Application) => {
+export default (app: Application, config: EggAppConfig) => {
   const { controller, router } = app;
 
+  const validateToken = app.middleware.validateToken(config, app);
   router.get("/", controller.home.index);
 
   /*** 文章 */
@@ -28,8 +29,10 @@ export default (app: Application) => {
   router.delete("/deleteTag", controller.tags.deleteTag);
 
   /*** 登录模块 */
-  router.post('/login', controller.user.login);
-
-  router.post('/register', controller.user.register);
-
+  // 验证token是否生效
+  router.get("/checkToken", validateToken, controller.user.checkToken);
+  // 登录
+  router.post("/login", controller.user.login);
+  // 注册
+  router.post("/register", controller.user.register);
 };

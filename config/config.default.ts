@@ -3,12 +3,14 @@ import { EggAppConfig, EggAppInfo, PowerPartial } from "egg";
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
 
+  const bizConfig = {
+    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    secret: appInfo.name + "_1569428558809_566"
+  };
+
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + "_1569428558809_566";
-
-  // add your egg config in here
-  config.middleware = [];
+  config.keys = bizConfig.secret;
 
   //  数据库配置
   config.mongoose = {
@@ -32,6 +34,16 @@ export default (appInfo: EggAppInfo) => {
     }
   };
 
+  // redis
+  config.redis = {
+    client: {
+      port: 6379, // Redis port
+      host: "127.0.0.1", // Redis host
+      password: "auth",
+      db: 0
+    }
+  };
+
   // 跨域
   config.cors = {
     origin: "*",
@@ -45,13 +57,15 @@ export default (appInfo: EggAppInfo) => {
     widelyUndefined: true
   };
 
+  // jwt
+  config.jwt = {
+    secret: bizConfig.secret
+  };
+
   // 中间件
   config.middleware = ["errorHandler"];
 
   // add your special config in here
-  const bizConfig = {
-    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`
-  };
 
   // the return config will combines to EggAppConfig
   return {

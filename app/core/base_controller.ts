@@ -5,23 +5,25 @@ export default class BaseController extends Controller {
   public success(data?: any) {
     this.ctx.body = {
       status: "Success",
-      data
+      data,
+      code: 200
     };
   }
 
   public gotError() {
     this.ctx.body = {
       status: "Failure",
-      message: "Username already exists",
-    }
+      message: "Username already exists"
+    };
   }
 
   // 校验失败使用
-  public validateError(data: any) {
+  public validateError(data: any, code?: number) {
     this.ctx.body = {
       status: "Failure",
       message: "invalid post params",
-      info: data
+      info: data,
+      code: code || 403
     };
     this.ctx.status = 403;
   }

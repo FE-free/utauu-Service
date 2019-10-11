@@ -21,9 +21,7 @@ export default class ArticleController extends BaseController {
 
   // 获取公布状态文章
   public async getTagClassArticle() {
-    this.success(
-      await this.service.article.getTagClassArticle(this.ctx.query)
-    );
+    this.success(await this.service.article.getTagClassArticle(this.ctx.query));
   }
 
   // 更新单篇文章详情

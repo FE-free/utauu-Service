@@ -13,8 +13,13 @@ export default class UserService extends Service {
     return await ctx.model.User.create(body);
   }
 
-  public async inquire(condition: any) {
+  public async findUser(condition: any) {
     const { ctx } = this;
     return await ctx.model.User.findOne(condition);
+  }
+
+  public async inquire(condition: any) {
+    const { ctx } = this;
+    return await ctx.model.User.find(condition);
   }
 }

@@ -16,3 +16,8 @@ export const createUser = {
   username: "string",
   password: "password"
 };
+
+export const loginValidata = {
+  username: "string",
+  password: "password"
+};
