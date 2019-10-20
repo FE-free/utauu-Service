@@ -24,11 +24,17 @@ export default class UserController extends BaseController {
     const userInfo = await this.ctx.service.user.findUser({
       username: { $in: [ctx.request.body.username] }
     });
+
+    if (!userInfo) {
+      this.validateError("此用户不存在", 404);
+      return;
+    }
+
     const loginPassword = cryptPwd(ctx.request.body.password);
 
     //  密码不匹配则返回
     if (loginPassword !== userInfo.password) {
-      this.validateError("密码错误", 403);
+      this.validateError("用户名或密码错误", 400);
       return;
     }
 

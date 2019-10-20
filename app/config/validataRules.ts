@@ -19,5 +19,5 @@ export const createUser = {
 
 export const loginValidata = {
   username: "string",
-  password: "password"
+  password: "string"
 };

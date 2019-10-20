@@ -25,7 +25,7 @@ export default class BaseController extends Controller {
       info: data,
       code: code || 403
     };
-    this.ctx.status = 403;
+    this.ctx.status = code || 403;
   }
 
   //  未找到数据
