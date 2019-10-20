@@ -8,25 +8,25 @@ export default (app: Application, config: EggAppConfig) => {
 
   /*** 文章 */
   //  创建文章
-  router.post("/createArticle", controller.article.createArticle);
+  router.post("/createArticle",validateToken, controller.article.createArticle);
   //  获取文章
-  router.get("/getArticle", controller.article.getArticle);
+  router.get("/getArticle",validateToken, controller.article.getArticle);
   //  获取文章
-  router.get("/getArticleDetail/:id", controller.article.getArticleDetail);
+  router.get("/getArticleDetail/:id",validateToken, controller.article.getArticleDetail);
   //  更新文章
-  router.put("/updateArticle", controller.article.updateArticle);
+  router.put("/updateArticle",validateToken, controller.article.updateArticle);
   //  获取公布文章
-  router.get("/getPublishArticle", controller.article.getPublishArticle);
+  router.get("/getPublishArticle",validateToken, controller.article.getPublishArticle);
   //  获取分类文章
-  router.get("/getTagClassArticle", controller.article.getTagClassArticle);
+  router.get("/getTagClassArticle",validateToken, controller.article.getTagClassArticle);
 
   /*** 标签 */
   //  创建标签
-  router.post("/createTag", controller.tags.createTag);
+  router.post("/createTag", validateToken,controller.tags.createTag);
   //  获取全部标签
-  router.get("/getTagAll", controller.tags.getTagAll);
+  router.get("/getTagAll",validateToken, controller.tags.getTagAll);
   //  删除标签
-  router.delete("/deleteTag", controller.tags.deleteTag);
+  router.delete("/deleteTag",validateToken, controller.tags.deleteTag);
 
   /*** 登录模块 */
   // 验证token是否生效
