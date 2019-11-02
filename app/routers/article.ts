@@ -19,5 +19,7 @@ export default (app: Application, config: EggAppConfig) => {
   router.get("/getPublishArticle",validateToken, controller.article.getPublishArticle);
   //  获取分类文章
   router.get("/getTagClassArticle",validateToken, controller.article.getTagClassArticle);
+  //  删除文章
+  router.delete("/deleteArticle",validateToken, controller.article.deleteArticle);
 
 }

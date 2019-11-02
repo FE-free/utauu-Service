@@ -24,6 +24,10 @@ export default class Article extends Service {
     return await this.ctx.model.Article.find(params);
   }
 
+  public async deleteArticle(id: string) {
+    return await this.ctx.model.Article.findByIdAndDelete(id);
+  }
+
   // 更新文章
   public async updateArticle(id: string, article: any) {
     return await this.ctx.model.Article.findByIdAndUpdate(id, article);

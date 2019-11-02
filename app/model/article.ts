@@ -27,6 +27,9 @@ export default (app: any) => {
     },
     introduce: {
       type: String
+    },
+    createTime: {
+      type: Date
     }
   });
   return mongoose.model("Article", articleSchema);

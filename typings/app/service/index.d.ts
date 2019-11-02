@@ -6,6 +6,7 @@ import ExportTest from '../../../app/service/Test';
 import ExportArticle from '../../../app/service/article';
 import ExportTags from '../../../app/service/tags';
 import ExportUser from '../../../app/service/user';
+import ExportUserArticle from '../../../app/service/userArticle';
 
 declare module 'egg' {
   interface IService {
@@ -13,5 +14,6 @@ declare module 'egg' {
     article: ExportArticle;
     tags: ExportTags;
     user: ExportUser;
+    userArticle: ExportUserArticle;
   }
 }

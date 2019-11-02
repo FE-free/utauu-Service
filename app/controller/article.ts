@@ -1,5 +1,5 @@
 import BaseController from "../core/base_controller";
-import { validataArticle } from "../config/validataRules";
+import { validataArticle } from '../config/validataRules';
 // 文章 模块
 export default class ArticleController extends BaseController {
   // 获取文章
@@ -22,6 +22,11 @@ export default class ArticleController extends BaseController {
   // 获取公布状态文章
   public async getTagClassArticle() {
     this.success(await this.service.article.getTagClassArticle(this.ctx.query));
+  }
+
+  public async deleteArticle() {
+    const { ctx } = this;
+    this.success(await this.service.article.deleteArticle(ctx.query.articleId));
   }
 
   // 更新单篇文章详情
@@ -52,12 +57,9 @@ export default class ArticleController extends BaseController {
       return;
     }
 
-    const { title, content } = ctx.request.body;
+    const articleInfo = Object.assign(ctx.request.body, {createTime: new Date().getTime()})
 
-    const result = await this.service.article.createArticle({
-      title,
-      content
-    });
+    const result = await this.service.article.createArticle(articleInfo);
 
     this.success(result);
   }

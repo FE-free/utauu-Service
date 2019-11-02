@@ -6,6 +6,7 @@ import ExportArticle from '../../../app/controller/article';
 import ExportHome from '../../../app/controller/home';
 import ExportTags from '../../../app/controller/tags';
 import ExportUser from '../../../app/controller/user';
+import ExportUserArticle from '../../../app/controller/userArticle';
 
 declare module 'egg' {
   interface IController {
@@ -13,5 +14,6 @@ declare module 'egg' {
     home: ExportHome;
     tags: ExportTags;
     user: ExportUser;
+    userArticle: ExportUserArticle;
   }
 }
