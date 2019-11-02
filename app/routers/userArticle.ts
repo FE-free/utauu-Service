@@ -6,4 +6,6 @@ export default (app: Application) => {
   /*** 获取文章 */
   router.get("/getUserArticle", controller.userArticle.getUserArticle);
 
+  router.get("/getUserArticleDetail", controller.userArticle.getUserArticleDetail);
+
 }
