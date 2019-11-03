@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  utauu-service:
+    image: utauu-service
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 7001:7001
+      - 9229:9229
+    ## set your startup file here
+    command: node --inspect=0.0.0.0:9229 index.js

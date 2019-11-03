@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  utauu-service:
+    image: utauu-service
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 7001:7001
