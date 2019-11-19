@@ -1,9 +1,9 @@
-echo ""
-echo "*****yarn tsc create*****" 
-echo ""
-yarn tsc
-echo ""
-echo "*****yarn tsc  create done*****"
+# echo ""
+# echo "*****yarn tsc create*****" 
+# echo ""
+# yarn tsc
+# echo ""
+# echo "*****yarn tsc  create done*****"
 
 echo ""
 echo "*****docker volume create*****" 
