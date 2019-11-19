@@ -1,10 +1,40 @@
-version: '2.1'
+version: '3'
 
 services:
+  # node 服务
   utauu-service:
-    image: utauu-service
-    build: .
-    environment:
-      NODE_ENV: production
+    build: .   # nodeServer 目录
     ports:
       - 7001:7001
+    environment:
+      NODE_ENV: production
+    restart: always # 服务挂了的时候始终自动重启
+    depends_on:     # 定义容器启动顺序 附带容器间的依赖关系
+      - docker-mongo
+      - docker-redis
+
+  # mongo
+  docker-mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      # - /Users/allen/Documents/dataDB:/data/db    # 这里的 mongo_data 用的是上面的自定卷
+      - utauu-mongo:/data/db    # 这里的 mongo_data 用的是上面的自定卷
+    restart: always
+
+  # redis
+  docker-redis:
+    image: redis:3.2
+    ports:
+      - 6379:6379
+    volumes:
+      #-  /Users/allen/Documents/redisData:/data    # 这里的 mongo_data 用的是上面的自定卷
+      -  utauu-redis:/data    # 这里的 mongo_data 用的是上面的自定卷
+    restart: always
+
+volumes:
+    utauu-mongo:
+      external: true
+    utauu-redis:
+      external: true

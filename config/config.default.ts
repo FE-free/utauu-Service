@@ -14,13 +14,24 @@ export default (appInfo: EggAppInfo) => {
 
   //  数据库配置
   config.mongoose = {
-    url: process.env.EGG_MONGODB_URL || "mongodb://127.0.0.1/utauu",
+    url: process.env.EGG_MONGODB_URL || "mongodb://docker-mongo/utauu",
     options: {
       server: {
         poolSize: 40
       }
     }
   };
+
+   // redis
+  config.redis = {
+    client: {
+      port: 6379, // Redis port
+      host: "docker-redis", // Redis host
+      password: "auth",
+      db: 0
+    }
+  };
+
 
   //  配置安全校验 - 暂时取消
   config.security = {
@@ -34,16 +45,7 @@ export default (appInfo: EggAppInfo) => {
     }
   };
 
-  // redis
-  config.redis = {
-    client: {
-      port: 6379, // Redis port
-      host: "127.0.0.1", // Redis host
-      password: "auth",
-      db: 0
-    }
-  };
-
+ 
   // 跨域
   config.cors = {
     origin: "*",

@@ -9,8 +9,6 @@ export default class Test extends Service {
    * @param name - your name
    */
   public async sayHi(name: string) {
-    const { ctx } = this;
-    console.log("====>>>>", ctx.model.Article.find());
     return `hi, ${name}`;
   }
 }

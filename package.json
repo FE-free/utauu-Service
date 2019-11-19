@@ -8,7 +8,7 @@
     "declarations": true
   },
   "scripts": {
-    "docker-start": "egg-scripts start",
+    "start-docker": "egg-scripts start",
     "start": "egg-scripts start --daemon --title=egg-server-utauu-service",
     "stop": "egg-scripts stop --title=egg-server-utauu-service",
     "dev": "egg-bin dev",
