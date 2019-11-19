@@ -25,5 +25,5 @@
 - [x] Docker镜像 编译部署
   - [x] docker-compose
 
-- [ ] shell 自动化编译部署脚本
+- [x] shell 自动化 简易启动脚本
 
