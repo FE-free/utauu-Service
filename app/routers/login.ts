@@ -7,10 +7,10 @@ export default (app: Application, config: EggAppConfig) => {
   router.get("/", controller.home.index);
   /*** 登录模块 */
   // 验证token是否生效
-  router.get("/checkToken", validateToken, controller.user.checkToken);
+  router.get("/admin/checkToken", validateToken, controller.user.checkToken);
   // 登录
-  router.post("/login", controller.user.login);
+  router.post("/admin/login", controller.user.login);
   // 注册
-  router.post("/register", controller.user.register);
+  router.post("/admin/register", controller.user.register);
 
 }

@@ -6,6 +6,14 @@
 # echo "*****yarn tsc  create done*****"
 
 echo ""
+echo "*****docker-compose down*****" 
+echo ""
+docker-compose down
+echo ""
+echo "*****docker-compose down done*****"
+
+
+echo ""
 echo "*****docker volume create*****" 
 echo ""
 docker volume create --name=utauu-redis &&  docker volume create --name=utauu-mongo

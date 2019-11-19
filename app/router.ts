@@ -13,7 +13,6 @@ export default (app: Application, config: EggAppConfig) => {
   tags(app, config);
   // 管理端 - 登录 校验
   login(app, config);
-
   // 用户端 - 文章
   userArticle(app);
 };

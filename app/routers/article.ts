@@ -8,18 +8,18 @@ export default (app: Application, config: EggAppConfig) => {
 
   /*** 文章 */
   //  创建文章
-  router.post("/createArticle",validateToken, controller.article.createArticle);
+  router.post("/admin/createArticle",validateToken, controller.article.createArticle);
   //  获取文章
-  router.get("/getArticle",validateToken, controller.article.getArticle);
+  router.get("/admin/getArticle",validateToken, controller.article.getArticle);
   //  获取文章
-  router.get("/getArticleDetail/:id",validateToken, controller.article.getArticleDetail);
+  router.get("/admin/getArticleDetail/:id",validateToken, controller.article.getArticleDetail);
   //  更新文章
-  router.put("/updateArticle",validateToken, controller.article.updateArticle);
+  router.put("/admin/updateArticle",validateToken, controller.article.updateArticle);
   //  获取公布文章
-  router.get("/getPublishArticle",validateToken, controller.article.getPublishArticle);
+  router.get("/admin/getPublishArticle",validateToken, controller.article.getPublishArticle);
   //  获取分类文章
-  router.get("/getTagClassArticle",validateToken, controller.article.getTagClassArticle);
+  router.get("/admin/getTagClassArticle",validateToken, controller.article.getTagClassArticle);
   //  删除文章
-  router.delete("/deleteArticle",validateToken, controller.article.deleteArticle);
+  router.delete("/admin/deleteArticle",validateToken, controller.article.deleteArticle);
 
 }

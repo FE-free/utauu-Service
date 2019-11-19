@@ -4,8 +4,8 @@ export default (app: Application) => {
   const { controller, router } = app;
 
   /*** 获取文章 */
-  router.get("/getUserArticle", controller.userArticle.getUserArticle);
+  router.get("/user/getUserArticle", controller.userArticle.getUserArticle);
 
-  router.get("/getUserArticleDetail", controller.userArticle.getUserArticleDetail);
+  router.get("/user/getUserArticleDetail", controller.userArticle.getUserArticleDetail);
 
 }
