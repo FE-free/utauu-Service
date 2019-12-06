@@ -5,6 +5,8 @@
 # echo ""
 # echo "*****yarn tsc  create done*****"
 
+
+
 echo ""
 echo "*****docker-compose down*****" 
 echo ""
@@ -12,6 +14,13 @@ docker-compose down
 echo ""
 echo "*****docker-compose down done*****"
 
+
+echo ""
+echo "*****docker rmi utauu-service_utauu-service*****" 
+echo ""
+docker rmi utauu-service_utauu-service
+echo ""
+echo "*****docker rmi utauu-service_utauu-service done*****"
 
 echo ""
 echo "*****docker volume create*****" 

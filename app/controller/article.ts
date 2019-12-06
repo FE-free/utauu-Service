@@ -24,6 +24,7 @@ export default class ArticleController extends BaseController {
     this.success(await this.service.article.getTagClassArticle(this.ctx.query));
   }
 
+  // 删除文章
   public async deleteArticle() {
     const { ctx } = this;
     this.success(await this.service.article.deleteArticle(ctx.query.articleId));
