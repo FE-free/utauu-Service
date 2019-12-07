@@ -6,6 +6,7 @@ export default (app: Application, config: EggAppConfig) => {
   const validateToken = app.middleware.validateToken(config, app);
   router.get("/", controller.home.index);
 
+  
   /*** 标签 */
   //  创建标签
   router.post("/u/v/admin/createTag", validateToken, controller.tags.createTag);
