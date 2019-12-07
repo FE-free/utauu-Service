@@ -27,3 +27,13 @@
 
 - [x] shell 自动化 简易启动脚本
 
+
+---
+
+### 部署
+
+- [x] 配置Dockerfile
+- [x] 配置docker-compose
+
+
+
