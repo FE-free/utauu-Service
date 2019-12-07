@@ -8,10 +8,10 @@ export default (app: Application, config: EggAppConfig) => {
 
   /*** 标签 */
   //  创建标签
-  router.post("/backend/admin/createTag", validateToken, controller.tags.createTag);
+  router.post("/u/v/admin/createTag", validateToken, controller.tags.createTag);
   //  获取全部标签
-  router.get("/backend/admin/getTagAll", validateToken, controller.tags.getTagAll);
+  router.get("/u/v/admin/getTagAll", validateToken, controller.tags.getTagAll);
   //  删除标签
-  router.delete("/backend/admin/deleteTag", validateToken, controller.tags.deleteTag);
+  router.delete("/u/v/admin/deleteTag", validateToken, controller.tags.deleteTag);
 
 }

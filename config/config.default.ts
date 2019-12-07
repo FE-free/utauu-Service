@@ -1,8 +1,9 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from "egg";
+import storageEnv from './env';
+
 
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
-
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
     secret: appInfo.name + "_1569428558809_566"
@@ -14,7 +15,7 @@ export default (appInfo: EggAppInfo) => {
 
   //  数据库配置
   config.mongoose = {
-    url: process.env.EGG_MONGODB_URL || "mongodb://docker-mongo/utauu",
+    url: `mongodb://${storageEnv[appInfo.env].mongo}/utauu`,
     options: {
       server: {
         poolSize: 40
@@ -26,7 +27,7 @@ export default (appInfo: EggAppInfo) => {
   config.redis = {
     client: {
       port: 6379, // Redis port
-      host: "docker-redis", // Redis host
+      host: storageEnv[appInfo.env].redis, // Redis host
       password: "auth",
       db: 0
     }

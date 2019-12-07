@@ -5,8 +5,8 @@ export default (app: Application) => {
 
   /*** 获取文章 */
   
-  router.get("/backend/user/getUserArticle", controller.userArticle.getUserArticle);
+  router.get("/u/v/user/getUserArticle", controller.userArticle.getUserArticle);
 
-  router.get("/backend/user/getUserArticleDetail", controller.userArticle.getUserArticleDetail);
+  router.get("/u/v/user/getUserArticleDetail", controller.userArticle.getUserArticleDetail);
 
 }
