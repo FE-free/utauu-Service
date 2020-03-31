@@ -10,6 +10,15 @@ export default class BaseController extends Controller {
     };
   }
 
+  public onError(message?: any, code?: number) {
+    this.ctx.body = {
+      status: "Failure",
+      message
+    };
+
+    this.ctx.status =  code || 400
+  }
+
   public gotError() {
     this.ctx.body = {
       status: "Failure",
